@@ -1,23 +1,57 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-
-public class ScoreScript : MonoBehaviour
-{
+ 
+public class ScoreScript : MonoBehaviour {
     public enum Score
     {
         AiScore, PlayerScore
     }
+ 
     public Text AiScoreTxt, PlayerScoreTxt;
+ 
+    public UiManager uiManager;
+ 
+    public int MaxScore;
+ 
+    #region Scores
     private int aiScore, playerScore;
-    public void Increment(Score whichScore)
+ 
+    private int AiScore
     {
-        if(whichScore == Score.AiScore)
+        get { return aiScore; }
+        set
         {
-            AiScoreTxt.text = (++aiScore).ToString();
-        }
-        else
-        {
-            PlayerScoreTxt.text = (++playerScore).ToString();
+            aiScore = value;
+            if (value == MaxScore)
+                uiManager.ShowRestartCanvas(true);
         }
     }
+ 
+    private int PlayerScore
+    {
+        get { return playerScore; }
+        set
+        {
+            playerScore = value;
+            if (value == MaxScore)
+                uiManager.ShowRestartCanvas(false);
+        }
+    }
+    #endregion
+ 
+    public void Increment(Score whichScore)
+    {
+        if (whichScore == Score.AiScore)
+            AiScoreTxt.text = (++AiScore).ToString();
+        else
+            PlayerScoreTxt.text = (++PlayerScore).ToString();
+    }
+ 
+    public void ResetScores()
+    {
+        AiScore = PlayerScore = 0;
+        AiScoreTxt.text = PlayerScoreTxt.text = "0";
+    }
+ 
+ 
 }

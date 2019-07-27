@@ -52,4 +52,23 @@ public class UiManager : MonoBehaviour {
         playerMovement.ResetPosition();
         aiScript.ResetPosition();
     }
+
+    public void RestartCanvas(bool didAiWin)
+    {
+        Time.timeScale = 0;
+        CanvasGame.SetActive(false);
+        CanvasRestart.SetActive(true);
+        if(didAiWin)
+        {
+            audioManager.PlayLostGame();
+            WinTxt.SetActive(false);
+            LooseTxt.SetActive(true);
+        }
+        else
+        {
+            audioManager.PlayWonGame();
+            WinTxt.SetActive(true);
+            LooseTxt.SetActive(false);
+        }
+    }
 }
