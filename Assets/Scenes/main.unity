@@ -499,7 +499,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You Win :)
+  m_Text: Player Red Wins!
 --- !u!222 &330107180
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -851,7 +851,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You Loose :(
+  m_Text: Player Blue Wins!
 --- !u!222 &578671730
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2800,9 +2800,6 @@ MonoBehaviour:
   LooseTxt: {fileID: 578671727}
   audioManager: {fileID: 2104461649}
   scoreScript: {fileID: 2104461646}
-  puckScript: {fileID: 754992238}
-  playerMovement: {fileID: 2103621047}
-  aiScript: {fileID: 1931117365}
 --- !u!114 &2104461651
 MonoBehaviour:
   m_ObjectHideFlags: 0
