@@ -35,6 +35,19 @@ public class AiScript : MonoBehaviour, IResetable {
                               PuckBoundaryHolder.GetChild(3).position.x);
  
         UiManager.Instance.ResetableGameObjects.Add(this);
+ 
+        switch (GameValues.Difficulty)
+        {
+            case GameValues.Difficulties.Easy:
+                MaxMovementSpeed = 10;
+                break;
+            case GameValues.Difficulties.Medium:
+                MaxMovementSpeed = 15;
+                break;
+            case GameValues.Difficulties.Hard:
+                MaxMovementSpeed = 20;
+                break;
+        }
     }
  
     private void FixedUpdate()
